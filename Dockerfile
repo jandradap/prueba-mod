@@ -1,4 +1,4 @@
-FROM Alpine:latest
+FROM alpine:latest
 MAINTAINER Alejandro Morales Gracia "ale95mogra@gmail.com"
 
 RUN apk update \
