@@ -114,7 +114,8 @@ RUN chmod a+rwx /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 ADD default.conf /etc/nginx/conf.d/default.conf
-ADD nginx.conf /tmp/nginx.conf 
+ADD nginx.conf /etc/nginx/nginx.conf 
+RUN /run/nginx.pid /tmp
 
 EXPOSE 80
 
