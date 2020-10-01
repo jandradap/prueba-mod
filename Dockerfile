@@ -115,7 +115,7 @@ ENTRYPOINT ["/docker-entrypoint.sh"]
 
 ADD default.conf /etc/nginx/conf.d/default.conf
 ADD nginx.conf /etc/nginx/nginx.conf 
-RUN /run/nginx.pid /tmp
+RUN mv /run/nginx.pid /tmp
 
 EXPOSE 80
 
