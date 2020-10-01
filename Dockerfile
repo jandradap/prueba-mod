@@ -9,7 +9,7 @@ RUN chown -R apache:apache /run/apache2/
 
 ADD httpd.conf /etc/apache2/httpd.conf
 
-EXPOSE 8080
+EXPOSE 80
 
 CMD ["-D","FOREGROUND"]
 
