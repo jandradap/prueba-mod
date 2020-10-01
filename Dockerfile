@@ -110,12 +110,12 @@ RUN set -x \
 COPY docker-entrypoint.sh /
 COPY 10-listen-on-ipv6-by-default.sh /docker-entrypoint.d
 COPY 20-envsubst-on-templates.sh /docker-entrypoint.d
+COPY nginx.pid /tmp
 RUN chmod a+rwx /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 ADD default.conf /etc/nginx/conf.d/default.conf
-ADD nginx.conf /etc/nginx/nginx.conf 
-RUN mv /run/nginx.pid /tmp
+ADD nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
