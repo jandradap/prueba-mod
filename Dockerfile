@@ -3,15 +3,13 @@ MAINTAINER Alejandro Morales Gracia "ale95mogra@gmail.com"
 
 RUN apk --no-cache update
 RUN apk add --no-cache apache2
-# apk add libapache2-mod-auth-pgsql
 
-ENV APACHE_RUN_USER www-data
-ENV APACHE_RUN_GROUP www-data
-ENV APACHE_LOG_DIR /var/log/apache2
+RUN mkdir /run/apache2/
+RUN chown -R apache:apache /run/apache2/
 
-# RUN a2enmod 000_auth_pgsql
+ADD httpd.conf /etc/apache2/httpd.conf
 
-EXPOSE 80
+EXPOSE 8080
 
 CMD ["-D","FOREGROUND"]
 
