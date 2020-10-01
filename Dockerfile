@@ -5,8 +5,8 @@ RUN apk --no-cache update
 RUN apk add --no-cache apache2
 
 #RUN mkdir /run/apache2/
-RUN usermod -u 1000 apache
-RUN groupmod -g 1000 apache
+#RUN usermod -u 1000 apache
+#RUN groupmod -g 1000 apache
 
 ADD httpd.conf /etc/apache2/httpd.conf
 
