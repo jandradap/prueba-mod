@@ -110,13 +110,16 @@ RUN set -x \
 COPY docker-entrypoint.sh /
 COPY 10-listen-on-ipv6-by-default.sh /docker-entrypoint.d
 COPY 20-envsubst-on-templates.sh /docker-entrypoint.d
-RUN chmod a+rwx /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 ADD default.conf /etc/nginx/conf.d/default.conf
 ADD nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 80
+RUN mkdir -p /var/cache/nginx/client_temp \
+  && chmod 775 /var/cache/nginx/client_temp
+
+EXPOSE 8080
 
 STOPSIGNAL SIGTERM
 
