@@ -116,8 +116,8 @@ ENTRYPOINT ["/docker-entrypoint.sh"]
 ADD default.conf /etc/nginx/conf.d/default.conf
 ADD nginx.conf /etc/nginx/nginx.conf
 
-RUN mkdir -p /var/cache/nginx/client_temp \
-  && chmod 775 /var/cache/nginx/client_temp
+RUN mkdir -p /var/cache/nginx \
+  && chmod 775 /var/cache/nginx
 
 EXPOSE 8080
 
